@@ -2,6 +2,22 @@
 const $daysDiv = $('.days');
 const $citiesDiv = $('.cities');
 
+const renderStoredCities = () => {
+    //Reset cities div html
+    $citiesDiv.html('');
+
+    //Loop through stored cities and create buttons
+    let cityArray = JSON.parse(localStorage.getItem('cities'));
+    for (let i = 0; cityArray.length < 6 ? i < cityArray.length : i < 5; i++) {
+        let $newButton = $(`<button class="city">${cityArray[i]}</button>`);
+        $citiesDiv.append($newButton);
+        $newButton.on('click', (event) => {
+            let $storedLocation = $(event.currentTarget).text();
+            renderCurrentWeather($storedLocation);
+        });
+    };
+};
+
 //Function to render API info for current weather
 const renderCurrentWeather = location => {
     //Reset inner html for the current section
@@ -39,6 +55,7 @@ const renderCurrentWeather = location => {
     });
 };
 
+//Function to render five-day forecast
 const renderFiveDay = (lat, lon) => {
     //Reset html for five day div
     $daysDiv.html('');
@@ -73,9 +90,30 @@ const renderFiveDay = (lat, lon) => {
             $daysDiv.append($dayDiv);
         };
     });
-}
+};
 
+//Function for storing city locally
+const storeCity = city => {
+    //Retrieves previously stored cities
+    let storedCities = JSON.parse(localStorage.getItem('cities'));
+    //If the storage was empty then an array is created with the first searched city
+    if (storedCities) {
+        //If the city is already in storage it is not pushed
+        if (!storedCities.includes(city)) {
+            storedCities.push(city);
+        };
+    } else {
+        storedCities = [city];
+    };
+    //The stored array is updated
+    localStorage.setItem('cities', JSON.stringify(storedCities));
+};
+
+//Click listener for input
 $('.search-button').on('click', () => {
     let $locationInput = $('#search-bar').val();
     renderCurrentWeather($locationInput);
+    storeCity($locationInput);
+    renderStoredCities();
 });
+
