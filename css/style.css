@@ -1,64 +1,152 @@
 /*General rules*/
-/* body {
-    
-} */
-
-/*Header rules*/
-/* header {
-
+body {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(0, 162, 255) 100%);  
 }
 
-.heading {
-
-} */
+/*Header rules*/
+header {
+    background-color: black;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 25px;
+    border-bottom: white 2px solid;
+    font-weight: 800;
+}
 
 /*Main rules*/
-/* main {
-
+main {
+    display: flex;
+    flex-direction: row;
 }
 
 .search {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    width: 25%;
+    height: calc(100vh - 14rem);
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 1.2rem;
+    background-color: #EEE;
+    color: black;
 }
 
 .forecast {
-
-} */
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    flex-grow: 2;
+    height: calc(100vh - 14rem);
+    background-color: #EEE;
+    padding: 1.2rem;
+    margin-right: 2rem;
+}
 
 /*Search section rules*/
-/* label {
+label {
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: 800;
+}
 
+.bar-and-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#search-bar, .search-button {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
 }
 
 #search-bar {
-
+    line-height: 1.75rem;
+    padding-left: .6rem;
+    border: 1px black solid;
 }
 
 .search-button {
-
+    padding: .6rem;
+    background-color: black;
+    color: #FFF;
+    border: none;
 }
 
-.cities {
+/*.cities {
 
-} */
+}*/
 
-/*Forecast section rules*/
-/* .current {
-
+/*Current Forecast rules*/
+.current {
+    height: calc(100vh - 32rem);
+    border: 1px solid black;
+    background-color: #777;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.current-row {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.current h1 {
+    box-sizing: border-box;
+    font-weight: 800;
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    padding: .6rem;
+    width: 100%;
+    text-align: center;
+}
+
+.current p {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+.current img {
+    display: inline-block;
+}
+
+/*Five-Day Forecast rules*/
 .five-day {
-
+    margin-top: 1.2rem;
 }
 
 .five-heading {
-
+    text-align: center;
+    font-size: 2rem;
+    background-color: black;
+    color: white;
+    padding: .6rem;
+    font-weight: 800;
 }
 
 .days {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .day {
-
-} */
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(0, 162, 255) 100%);
+    color: white;
+    min-width: 16%;
+}
