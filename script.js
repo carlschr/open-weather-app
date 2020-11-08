@@ -8,13 +8,15 @@ const renderStoredCities = () => {
 
     //Loop through stored cities and create buttons
     let cityArray = JSON.parse(localStorage.getItem('cities'));
-    for (let i = 0; cityArray.length < 6 ? i < cityArray.length : i < 5; i++) {
-        let $newButton = $(`<button class="city">${cityArray[i]}</button>`);
-        $citiesDiv.append($newButton);
-        $newButton.on('click', (event) => {
-            let $storedLocation = $(event.currentTarget).text();
-            renderCurrentWeather($storedLocation);
-        });
+    if (cityArray) {
+        for (let i = 0; cityArray.length < 6 ? i < cityArray.length : i < 5; i++) {
+            let $newButton = $(`<button class="city">${cityArray[i]}</button>`);
+            $citiesDiv.append($newButton);
+            $newButton.on('click', (event) => {
+                let $storedLocation = $(event.currentTarget).text();
+                renderCurrentWeather($storedLocation);
+            });
+        };
     };
 };
 
@@ -117,3 +119,6 @@ $('.search-button').on('click', () => {
     renderStoredCities();
 });
 
+//Initial render
+renderStoredCities();
+renderCurrentWeather('Atlanta');
