@@ -121,4 +121,4 @@ $('.search-button').on('click', () => {
 
 //Initial render
 renderStoredCities();
-renderCurrentWeather('Atlanta');
+renderCurrentWeather(localStorage.getItem('cities') ? JSON.parse(localStorage.getItem('cities'))[JSON.parse(localStorage.getItem('cities')).length - 1] : 'Atlanta');
