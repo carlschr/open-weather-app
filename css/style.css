@@ -1,6 +1,7 @@
 /*General rules*/
 body {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(0, 162, 255) 100%);  
+    padding-bottom: 2rem;
 }
 
 /*Header rules*/
@@ -81,6 +82,13 @@ label {
     border: none;
 }
 
+.recent {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
 .cities {
     display: flex;
     flex-direction: column;
@@ -138,6 +146,14 @@ label {
 
 .current img {
     display: inline-block;
+}
+
+.uv {
+    font-size: 1.2rem;
+    margin-top: .8rem;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 8rem;
 }
 
 /*Five-Day Forecast rules*/
