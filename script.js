@@ -59,10 +59,10 @@ const renderCurrentWeather = location => {
 
         //Returns a color based on the uv index
         const uvCheck = index => {
-            let color = (index < 3) ? 'green' : 
-            (index < 6) ? 'yellow' :
-            (index < 8) ? 'orange' :
-            (index < 11) ? 'red' : 'purple';
+            let color = (index < 3) ? 'green; color: white' : 
+            (index < 6) ? 'yellow; color: black' :
+            (index < 8) ? 'orange; color: black' :
+            (index < 11) ? 'red; color: white' : 'purple; color: white';
             return color;
         };
 
@@ -101,11 +101,12 @@ const renderFiveDay = (lat, lon) => {
             //Variables taken from response data
             let maxTemp = daysArray[i].temp.max;
             let minTemp = daysArray[i].temp.min;
+            let humidity = daysArray[i].humidity;
             let cloud = daysArray[i].weather[0].main;
             let weatherIcon = daysArray[i].weather[0].icon;
 
             //New day div containing response data variables
-            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>${maxTemp} &#176;F</p><p>${minTemp} &#176;F</p></div>`);
+            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>${maxTemp} &#176;F</p><p>${minTemp} &#176;F</p><p>${humidity} %</div>`);
             $daysDiv.append($dayDiv);
         };
     });
