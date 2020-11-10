@@ -188,7 +188,7 @@ label {
     align-items: center;
     border: 3px black solid;
     padding-top: .4rem;
-    padding-bottom: .4rem;
+    padding-bottom: 1rem;
 }
 
 .day p, .day img {
