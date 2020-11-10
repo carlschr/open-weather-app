@@ -106,7 +106,7 @@ const renderFiveDay = (lat, lon) => {
             let weatherIcon = daysArray[i].weather[0].icon;
 
             //New day div containing response data variables
-            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>${maxTemp} &#176;F</p><p>${minTemp} &#176;F</p><p>${humidity} %</div>`);
+            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>Max: ${maxTemp} &#176;F</p><p>Min: ${minTemp} &#176;F</p><p>Humidity: ${humidity} %</div>`);
             $daysDiv.append($dayDiv);
         };
     });
