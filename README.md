@@ -5,6 +5,7 @@ The goal of this project was to create a weather dashboard. In this dashboard, o
 
 ## Challenges:
 The most challenging piece of functionality to create was the recent search buttons. It took some time to think through the ways to structure the local storage data.
+It was also quite challenging to find a work-around to the mixed-content error that resulted from using Open Weather API's free version using http instead of https.
 
 ## Example GIF:
 !["example gif of website"](./images/weather-dash.gif)
