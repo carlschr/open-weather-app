@@ -41,7 +41,7 @@ const renderCurrentWeather = location => {
         let weatherIcon = response.weather[0].icon;
         let currentWind = response.wind.speed;
         //Grabs uv index from another API call using await keyword
-        let uvJSON = await $.ajax({url: `http://api.openweathermap.org/data/2.5/uvi?lat=${response.coord.lat}&lon=${response.coord.lon}&appid=59c9f9d794fad5805a3ff6749acde141`, method: 'GET'});
+        let uvJSON = await $.ajax({url: `https://api.openweathermap.org/data/2.5/uvi?lat=${response.coord.lat}&lon=${response.coord.lon}&appid=59c9f9d794fad5805a3ff6749acde141`, method: 'GET'});
         console.log(uvJSON);
         let uvIndex = uvJSON.value;
 
@@ -55,7 +55,7 @@ const renderCurrentWeather = location => {
         $('.content').prepend($currentWeather);
 
         //Cloud cover icon
-        $('.icon').html(`<img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/>`);
+        $('.icon').html(`<img src='https://openweathermap.org/img/wn/${weatherIcon}.png'/>`);
 
         //Returns a color based on the uv index
         const uvCheck = index => {
@@ -80,7 +80,7 @@ const renderFiveDay = (lat, lon) => {
     $daysDiv.html('');
 
     const settings = {
-        url: `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly&appid=59c9f9d794fad5805a3ff6749acde141`,
+        url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly&appid=59c9f9d794fad5805a3ff6749acde141`,
         method: 'GET'
     };
 
@@ -106,7 +106,7 @@ const renderFiveDay = (lat, lon) => {
             let weatherIcon = daysArray[i].weather[0].icon;
 
             //New day div containing response data variables
-            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='http://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>Max: ${maxTemp} &#176;F</p><p>Min: ${minTemp} &#176;F</p><p>Humidity: ${humidity} %</div>`);
+            let $dayDiv = $(`<div class='day'><p>${date}</p><img src='https://openweathermap.org/img/wn/${weatherIcon}.png'/><p>${cloud}</p><p>Max: ${maxTemp} &#176;F</p><p>Min: ${minTemp} &#176;F</p><p>Humidity: ${humidity} %</div>`);
             $daysDiv.append($dayDiv);
         };
     });
