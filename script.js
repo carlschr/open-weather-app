@@ -7,7 +7,7 @@ const renderStoredCities = () => {
     $citiesDiv.html('');
 
     //Loop through stored cities and create buttons
-    let cityArray = JSON.parse(localStorage.getItem('cities'));
+    let cityArray = JSON.parse(localStorage.getItem('weather-cities'));
     if (cityArray) {
         for (let i = 0; cityArray.length < 6 ? i < cityArray.length : i < 5; i++) {
             let $newButton = $(`<button class="city">${cityArray[i]}</button>`);
