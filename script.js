@@ -80,7 +80,7 @@ const renderFiveDay = (lat, lon) => {
     $daysDiv.html('');
 
     const settings = {
-        url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly&appid=59c9f9d794fad5805a3ff6749acde141`,
+        url: `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=hourly&appid=59c9f9d794fad5805a3ff6749acde141`,
         method: 'GET'
     };
 
@@ -115,7 +115,7 @@ const renderFiveDay = (lat, lon) => {
 //Function for storing city locally
 const storeCity = city => {
     //Retrieves previously stored cities
-    let storedCities = JSON.parse(localStorage.getItem('cities'));
+    let storedCities = JSON.parse(localStorage.getItem('weather-cities'));
     //If the storage was empty then an array is created with the first searched city
     if (storedCities) {
         //If the city is already in storage it is not pushed
@@ -126,7 +126,7 @@ const storeCity = city => {
         storedCities = [city];
     };
     //The stored array is updated
-    localStorage.setItem('cities', JSON.stringify(storedCities));
+    localStorage.setItem('weather-cities', JSON.stringify(storedCities));
 };
 
 //Click listener for input
@@ -139,4 +139,4 @@ $('.search-button').on('click', () => {
 
 //Initial render
 renderStoredCities();
-renderCurrentWeather(localStorage.getItem('cities') ? JSON.parse(localStorage.getItem('cities'))[JSON.parse(localStorage.getItem('cities')).length - 1] : 'Atlanta');
+renderCurrentWeather(localStorage.getItem('weather-cities') ? JSON.parse(localStorage.getItem('weather-cities'))[JSON.parse(localStorage.getItem('weather-cities')).length - 1] : 'Atlanta');
